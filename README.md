@@ -26,7 +26,7 @@ export CONTENT_PATH=$(jq -r '.paths.contentPath // "."' config.${GHOST_ENVIRONME
 mkdir -p ${CONTENT_PATH}/adapters/storage/gcloud
 cat > ${CONTENT_PATH}/adapters/storage/gcloud/index.js << EOL
 'use strict';
-module.exports = require('ghost-google-cloud-storage');
+module.exports = require('ghost-google-cloud-storage-new');
 EOL
 ```
 
