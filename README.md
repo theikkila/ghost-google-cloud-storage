@@ -1,10 +1,9 @@
-# Looking for mantainer
-This plugin is not updated for working on last ghost version.
-
 #  Fork informations:
 This fork was upgraded to work with the latest ghost version.
 In production i use this adapter for an ghost running on Google appengine flex nodejs environment.
 
+## Original source:
+https://github.com/thombuchi/ghost-google-cloud-storage
 
 # Ghost Google Cloud Storage Plugin 
 A simple plugin to add Google Cloud Storage support for a Ghost Blog. 
