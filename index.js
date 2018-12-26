@@ -16,7 +16,7 @@ class GStore extends BaseStore {
             keyFilename: options.key
         });
         this.bucket = gcs.bucket(options.bucket);
-        this.assetDomain = option.assetDomain || `storage.googleapis.com/${options.bucket}/`;
+        this.assetDomain = options.assetDomain || `storage.googleapis.com/${options.bucket}/`;
         if(options.hasOwnProperty('assetDomain')){
             this.insecure = options.insecure;
         }
