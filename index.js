@@ -10,7 +10,6 @@ class GStore extends BaseStore {
     constructor(config = {}){
         super(config);
         options = config;
-
         var gcs = storage({
             projectId: options.projectId,
             keyFilename: options.key
@@ -31,20 +30,13 @@ class GStore extends BaseStore {
      * @returns {*}
      */
     save(image, targetDir) {
-        console.log(image, 'image');
-        console.log(targetDir, 'targetDir');
         if (!options) return Promise.reject('google cloud storage is not configured');
-        console.log(image);
-        console.log(this.getTargetDir(), 'DIR');
         var targetDir = this.getTargetDir(),
             googleStoragePath = `http${this.insecure?'':'s'}://${this.assetDomain}`;
         var targetFilenameOut=null;
 
         return new Promise((resolve, reject) => {
             this.getUniqueFileName(image, targetDir).then(targetFilename => {
-                console.log(
-                    targetFilename, 'TARGETFILENAME' );
-
                 var fileNamePath=null;
                 if(targetFilename.indexOf(targetDir) === -1) {
                     fileNamePath =targetDir + targetFilename;
@@ -61,9 +53,6 @@ class GStore extends BaseStore {
                 };
                 return this.bucket.upload(image.path, opts);
             }).then(function (data) {
-                console.log(data);
-                console.log(data[0].name);
-                console.log('RESOVLE UPLOAD', targetFilenameOut);
                 return resolve( googleStoragePath  + targetFilenameOut);
             }).catch(function (e) {
                 return reject(e);
@@ -88,14 +77,10 @@ class GStore extends BaseStore {
     }
 
     read (filename) {
-        console.log(filename, 'WHAT DA HECK');
-        //console.log(this.bucket);
-
         if(typeof filename.path !== 'undefined') {
             filename=filename.path;
         }
         const file = this.bucket.file(filename);
-
         try {
             var st=file.createReadStream()
 
@@ -122,7 +107,6 @@ class GStore extends BaseStore {
     }
 
     delete (filename) {
-        console.log('delete', filename);
         return this.bucket.file(filename).delete();
     }
 }
