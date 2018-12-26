@@ -11,7 +11,7 @@ A simple plugin to add Google Cloud Storage support for a Ghost Blog.
 ## Installation
 ```bash
 cd /var/www/ghost # or wherever you ran ghost-cli, this is your ghost base directory
-npm install --save ghost-google-cloud-storage
+npm install --save ghost-google-cloud-storage-new
 ```
 Note that if you do not have a `package.json` file in your ghost base directory, this will warn. You do not need to add one, the `node_modules` directory will be created and populated either way. You can create one by running `npm init`.
 
