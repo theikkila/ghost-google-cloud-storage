@@ -77,29 +77,22 @@ class GStore extends BaseStore {
     }
 
     read (filename) {
+        const googleStoragePath = `http${this.insecure?'':'s'}://${this.assetDomain}`;
         if(typeof filename.path !== 'undefined') {
             filename=filename.path;
         }
-        const file = this.bucket.file(filename);
+        if(filename.indexOf(googleStoragePath) !== -1){
+            console.log("is in assetDOmain")
+            filename=filename.replace(googleStoragePath, '');
+            console.log(filename);
+        }
         try {
-            var st=file.createReadStream()
-
-            var rs = this.bucket.file(filename).createReadStream();//, contents = ''
-            var contents='';
+            var rs = this.bucket.file(filename);
             return new Promise(function (resolve, reject) {
-                rs.on('error', function(err){
-                    console.log('error read file');
-                    //console.log(err);
-                    return reject(err);
-                });
-                rs.on('data', function(data){
-                    contents += data;
-                });
-                rs.on('end', function(){
-                    console.log('END');
-                    //console.log(contents);
-                    return resolve(contents);
-                });
+                rs.download()
+                    .then(function(data){
+                        resolve(data[0]);
+                    });
             });
         } catch(e){
             console.log('STREAM TO DEATH', e);
