@@ -82,9 +82,7 @@ class GStore extends BaseStore {
             filename=filename.path;
         }
         if(filename.indexOf(googleStoragePath) !== -1){
-            console.log("is in assetDOmain")
             filename=filename.replace(googleStoragePath, '');
-            console.log(filename);
         }
         try {
             var rs = this.bucket.file(filename);
