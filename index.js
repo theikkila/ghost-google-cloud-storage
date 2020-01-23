@@ -84,17 +84,14 @@ class GStore extends BaseStore {
         if(filename.indexOf(googleStoragePath) !== -1){
             filename=filename.replace(googleStoragePath, '');
         }
-        try {
-            var rs = this.bucket.file(filename);
-            return new Promise(function (resolve, reject) {
-                rs.download()
-                    .then(function(data){
-                        resolve(data[0]);
-                    });
-            });
-        } catch(e){
-            console.log('STREAM TO DEATH', e);
-        }
+        var rs = this.bucket.file(filename);
+        return new Promise(function (resolve, reject) {
+            rs.download()
+                .then(function(data){
+                    resolve(data[0]);
+                })
+                .catch(reject)
+        });
     }
 
     delete (filename) {
