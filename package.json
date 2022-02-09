@@ -1,6 +1,6 @@
 {
-  "name": "ghost-google-cloud-storage-new",
-  "version": "1.1.7",
+  "name": "ghost-google-cloud-storage-newtwo",
+  "version": "1.1.8",
   "description": "A simple plugin to add Google Cloud Storage support for Ghost Blog runs with new ghost version",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KaySchneider/ghost-google-cloud-storage.git"
+    "url": "https://github.com/theikkila/ghost-google-cloud-storage.git"
   },
   "keywords": [
     "ghost",
@@ -17,16 +17,15 @@
     "plugin",
     "blog"
   ],
-  "author": "Kay Schneider <ikay@yakisch.com>",
   "author": "Thomas Büchi Sagredo <thombuchi@gmail.com>)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KaySchneider/ghost-google-cloud-storage.git/issues"
+    "url": "https://github.com/theikkila/ghost-google-cloud-storage.git/issues"
   },
   "homepage": "https://www.yakisch.com/ghost-google-cloud-storage-adapter/",
   "dependencies": {
-    "@google-cloud/storage": "^1.3.1",
-    "bluebird": "^3.1.1",
-    "ghost-storage-base": "0.0.3"
+    "@google-cloud/storage": "5.18.1",
+    "bluebird": "3.7.2",
+    "ghost-storage-base": "1.0.0"
   }
 }

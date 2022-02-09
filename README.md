@@ -2,6 +2,8 @@
 This fork was upgraded to work with the latest ghost version.
 In production i use this adapter for an ghost running on Google appengine flex nodejs environment.
 
+This is fork of fork. Trying to keep the dependencies updated.
+
 ## Original source:
 https://github.com/thombuchi/ghost-google-cloud-storage
 
@@ -117,3 +119,4 @@ You can access your blog at http://example.com
 - gcochard
 - zackify
 - KaySchneider
+- theikkila
